@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Обучение AI-генерациям для брендов и ретуши в фотошопе с нуля. Старт 10.10.">
+<meta property="og:title" content="AIDEPO Обучение">
+<meta property="og:description" content="40+ уроков, 20+ часов, обратная связь и комьюнити. Старт 10.10.">
+<meta property="og:image" content="works/01-s.jpg">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>AIDEPO Обучение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  --bg:#F2F2F7; --card:#FFFFFF; --card2:#F7F7FA; --ink:#0B0B0F; --ink2:#5F5F68; --ink3:#8E8E96;
+  --sep:rgba(60,60,67,.14); --accent:#1E8FDB; --accent-soft:#E3F2FC; --accent-ink:#0B6FB3;
+  --on-accent:#FFFFFF; --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(20,40,80,.06);
+  --glass:rgba(242,242,247,.78); --good:#1F9D55;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E; --ink:#F5F5F7; --ink2:#AEAEB5; --ink3:#86868E;
+    --sep:rgba(235,235,245,.14); --accent:#4FB4F7; --accent-soft:#0F2A3D; --accent-ink:#7CC8FA;
+    --on-accent:#001A2B; --shadow:none; --glass:rgba(0,0,0,.72); --good:#34C77B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E; --ink:#F5F5F7; --ink2:#AEAEB5; --ink3:#86868E;
+  --sep:rgba(235,235,245,.14); --accent:#4FB4F7; --accent-soft:#0F2A3D; --accent-ink:#7CC8FA;
+  --on-accent:#001A2B; --shadow:none; --glass:rgba(0,0,0,.72); --good:#34C77B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;line-height:1.08}
+h3{font-size:19px;font-weight:700;line-height:1.25}
+p{margin:0}
+.muted{color:var(--ink2)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--glass);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--sep)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+.logo{display:block;height:18px;width:auto;color:var(--ink)}
+.navlinks{display:flex;gap:24px;font-size:14px;font-weight:500}
+.navlinks a{color:var(--ink2);text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+@media (max-width:760px){.navlinks{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,filter .15s}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:scale(.97)}
+.btn.sm{min-height:36px;padding:0 16px;font-size:14px}
+.btn.ghost{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--sep)}
+
+section{padding-block:56px}
+@media (max-width:600px){section{padding-block:40px}}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;max-width:720px}
+
+/* hero */
+.hero{padding-block:56px 32px}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:end}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:var(--card);box-shadow:var(--shadow);font-size:14px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px color-mix(in srgb,var(--good) 20%,transparent)}
+.hero h1{font-size:clamp(40px,7.4vw,84px);font-weight:900;line-height:.98;letter-spacing:-.035em;margin-top:20px;text-transform:uppercase}
+.hero h1 span{color:var(--accent)}
+.hero .lead{font-size:clamp(17px,2vw,20px);color:var(--ink2);margin-top:20px;max-width:560px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
+.hero-cta small{color:var(--ink3);font-size:14px}
+
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{background:var(--card);border-radius:22px;padding:18px 20px;box-shadow:var(--shadow)}
+.stat{min-width:0}
+.stat.wide{grid-column:1/-1;display:flex;align-items:center;gap:16px}
+.stat.wide span{margin-top:0}
+.stat b{display:block;font-size:clamp(30px,3.6vw,40px);white-space:nowrap;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;font-size:14px;color:var(--ink2);line-height:1.3}
+.stat.hl{background:var(--accent);color:var(--on-accent)}
+.stat.hl span{color:inherit;opacity:.85}
+
+/* grouped lists */
+.group{background:var(--card);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.group-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 10px}
+.group-title h3{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.count{font-size:13px;color:var(--ink3);font-weight:500;font-variant-numeric:tabular-nums}
+.cells{list-style:none;margin:0;padding:0}
+.cells li{display:flex;gap:14px;align-items:flex-start;padding:13px 20px;position:relative}
+.cells li+li::before{content:"";position:absolute;top:0;left:56px;right:0;border-top:.5px solid var(--sep)}
+.ic{flex:none;width:24px;height:24px;border-radius:7px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;margin-top:1px}
+.ic svg{width:14px;height:14px}
+.cells li p{font-size:15.5px;line-height:1.4}
+.cells li p small{display:block;color:var(--ink2);font-size:14px;margin-top:2px}
+
+.tabs{display:inline-flex;padding:3px;border-radius:12px;background:var(--card2);box-shadow:inset 0 0 0 .5px var(--sep);gap:2px}
+.tabs button{appearance:none;border:0;background:transparent;color:var(--ink2);font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:9px;cursor:pointer;min-height:36px}
+.tabs button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+.program{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+@media (max-width:760px){.program{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:16px}
+
+.status{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
+.status.live{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.status.soon{background:var(--accent-soft);color:var(--accent-ink)}
+
+.ready{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}
+@media (max-width:760px){.ready{grid-template-columns:1fr}}
+.ready-card{background:var(--card);border-radius:22px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:18px}
+.ready-nums{display:flex;gap:28px;flex-wrap:wrap}
+.ready-nums b{display:block;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.ready-nums span{font-size:14px;color:var(--ink2)}
+
+/* feature duo */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+.feature{background:var(--card);border-radius:26px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.feature .big{font-size:clamp(22px,2.6vw,28px);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.quote{font-size:18px;font-weight:500;line-height:1.4}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:14px;padding:7px 12px;border-radius:999px;background:var(--card2);color:var(--ink)}
+
+/* pricing */
+.price-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+@media (max-width:820px){.price-wrap{grid-template-columns:1fr}}
+.price-card{background:var(--card);border-radius:28px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden}
+.price-card.main{box-shadow:inset 0 0 0 2px var(--accent),var(--shadow)}
+.badge{align-self:flex-start;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px}
+.price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.price .now{font-size:clamp(48px,7vw,64px);font-weight:900;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.price .old{font-size:22px;color:var(--ink3);text-decoration:line-through;font-weight:600;font-variant-numeric:tabular-nums}
+.timeline{display:flex;flex-direction:column;gap:0;border-radius:16px;background:var(--card2);overflow:hidden}
+.timeline div{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;font-size:15px;font-variant-numeric:tabular-nums}
+.timeline div+div{border-top:.5px solid var(--sep)}
+.timeline .on{font-weight:700}
+.timeline .on span:last-child{color:var(--accent-ink)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.checks li{display:flex;gap:10px;font-size:15.5px;line-height:1.4}
+.checks svg{flex:none;width:20px;height:20px;color:var(--accent);margin-top:1px}
+
+.pay{display:flex;flex-direction:column;gap:12px}
+.pay-row{display:flex;gap:14px;align-items:flex-start;background:var(--card2);border-radius:18px;padding:16px}
+.pay-ic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:18px;color:var(--accent-ink);box-shadow:inset 0 0 0 .5px var(--sep)}
+.pay-row h3{font-size:16px}
+.pay-row p{font-size:14.5px;color:var(--ink2);margin-top:2px}
+
+/* faq */
+.faq{max-width:780px}
+.faq details{background:var(--card);border-radius:18px;box-shadow:var(--shadow)}
+.faq details+details{margin-top:10px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-weight:600;font-size:17px;min-height:56px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .chev{flex:none;width:28px;height:28px;border-radius:50%;background:var(--card2);display:grid;place-items:center;transition:transform .2s ease}
+.faq summary .chev svg{width:14px;height:14px}
+.faq details[open] summary .chev{transform:rotate(180deg)}
+.faq .ans{padding:0 20px 20px;color:var(--ink2);font-size:16px;line-height:1.6;display:flex;flex-direction:column;gap:10px;max-width:68ch}
+
+/* final cta */
+.final{background:var(--ink);color:var(--bg);border-radius:32px;padding:clamp(28px,5vw,56px);display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.final h2{color:var(--bg);text-transform:uppercase;font-weight:900}
+.final p{color:color-mix(in srgb,var(--bg) 72%,transparent);max-width:560px}
+
+[hidden]{display:none!important}
+.lessons{list-style:none;margin:0;padding:0 0 6px;columns:2;column-gap:0}
+@media (max-width:760px){.lessons{columns:1}}
+.lessons li{break-inside:avoid;display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:baseline;padding:12px 20px;border-top:.5px solid var(--sep)}
+.lk{font-size:12px;font-weight:700;letter-spacing:.02em;padding:3px 8px;border-radius:7px;white-space:nowrap;background:var(--card2);color:var(--ink2)}
+.lk.k-main{background:var(--accent-soft);color:var(--accent-ink)}
+.lk.k-pod{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.lessons p{font-size:15px;line-height:1.4}
+.lessons time{font-size:14px;font-weight:600;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:420px){.lessons li{grid-template-columns:1fr auto}.lessons li p{grid-column:1/-1;grid-row:2}}
+/* works */
+.works-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px}
+.zoom-hint{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);font-size:14px;font-weight:600}
+.zoom-hint svg{width:16px;height:16px}
+.carousel{position:relative}
+.gallery{--gap:12px;--n:3;display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
+.gallery::-webkit-scrollbar{display:none}
+.gallery .shot{flex:0 0 calc((100% - (var(--n) - 1)*var(--gap))/var(--n));scroll-snap-align:start}
+@media (max-width:760px){.gallery{--gap:8px;--n:2}}
+.car-nav{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:0;background:var(--card);color:var(--ink);box-shadow:var(--shadow),inset 0 0 0 .5px var(--sep);display:grid;place-items:center;cursor:pointer}
+.car-btn svg{width:20px;height:20px}
+.car-btn:disabled{opacity:.35;cursor:default}
+.lessons-box summary{list-style:none;cursor:pointer;padding-bottom:18px;min-height:56px}
+.lessons-box summary::-webkit-details-marker{display:none}
+.lessons-box[open] summary{padding-bottom:10px}
+.sum-r{display:flex;align-items:center;gap:10px}
+.lessons-box .chev{flex:none;width:28px;height:28px;border-radius:50%;background:var(--card2);display:grid;place-items:center;transition:transform .2s ease}
+.lessons-box .chev svg{width:14px;height:14px}
+.lessons-box[open] .chev{transform:rotate(180deg)}
+@media (max-width:480px){.lessons-box summary{flex-wrap:wrap}}
+.shot{position:relative;display:block;padding:0;border:0;border-radius:18px;overflow:hidden;cursor:zoom-in;background:var(--card2);aspect-ratio:3/4;max-width:100%}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.shot:hover img{transform:scale(1.04)}
+.shot .zi{position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;display:grid;place-items:center}
+.shot .zi svg{width:18px;height:18px}
+
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.94);display:flex;flex-direction:column;touch-action:none;user-select:none;-webkit-user-select:none}
+.lb-top,.lb-bot{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;z-index:2;color:#fff}
+.lb-top{top:0;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+.lb-bot{bottom:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));justify-content:center}
+.lb-btn{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-btn:hover{background:rgba(255,255,255,.24)}
+.lb-btn svg{width:20px;height:20px}
+.lb-count{font-size:14px;font-weight:600;opacity:.8;font-variant-numeric:tabular-nums}
+.lb-stage{flex:1;overflow:hidden;position:relative;cursor:grab}
+.lb-stage.drag{cursor:grabbing}
+.lb-stage img{position:absolute;left:50%;top:50%;max-width:none;transform-origin:0 0;will-change:transform}
+.lb-tip{font-size:14px;background:rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-load{position:absolute;top:calc(64px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);font-size:13px;color:#fff;opacity:.7;z-index:2}
+
+.tg{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.tg-handle{font-weight:700;font-size:17px;user-select:all}
+.copy{min-height:36px;padding:0 14px;border-radius:999px;border:0;background:var(--card2);color:var(--ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.final .copy{background:color-mix(in srgb,var(--bg) 16%,transparent);color:var(--bg)}
+.final .tg-handle{color:var(--bg)}
+
+footer{padding-block:40px 48px;border-top:.5px solid var(--sep);margin-top:24px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-start}
+footer .legal{font-size:14px;color:var(--ink2);line-height:1.6}
+footer .legal b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".16"/><path d="M6 10.3l2.6 2.6L14 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="play" viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></symbol>
+    <symbol id="spark" viewBox="0 0 16 16"><path d="M8 1.5l1.6 4.9 4.9 1.6-4.9 1.6L8 14.5l-1.6-4.9L1.5 8l4.9-1.6z" fill="currentColor"/></symbol>
+    <symbol id="doc" viewBox="0 0 16 16"><path d="M4 2h5l3 3v9H4z M9 2v3h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="zoom" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.5 12.5L17 17M8.5 6.5v4M6.5 8.5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="minus" viewBox="0 0 20 20"><path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="plus" viewBox="0 0 20 20"><path d="M5 10h10M10 5v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="x" viewBox="0 0 20 20"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="left" viewBox="0 0 20 20"><path d="M12.5 4.5L7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="right" viewBox="0 0 20 20"><path d="M7.5 4.5L13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="tg" viewBox="0 0 20 20"><path d="M17.5 3.5L2.8 9.2c-.8.3-.8 1 0 1.2l3.7 1.2 1.4 4.4c.2.5.8.6 1.1.2l2-2 3.9 2.9c.5.4 1.2.1 1.3-.5L18.6 4.6c.2-.8-.4-1.4-1.1-1.1zM7.5 11.4l7.3-4.6-5.8 5.6-.3 2.6z" fill="currentColor"/></symbol>
+    <symbol id="chev" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="logo" viewBox="0 0 384 68"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M337.2 3.05801C330.197 6.55701 326.77 10.187 323.09 18C320.817 22.827 320.5 24.785 320.5 34C320.5 43.251 320.811 45.154 323.113 50C326.256 56.617 331.569 62.076 337.857 65.151C344.592 68.444 359.579 68.46 365.795 65.18C372.65 61.563 377.494 56.51 380.576 49.762C383.033 44.381 383.44 42.234 383.468 34.5C383.524 18.828 378.198 8.75299 366.863 3.08899C361.379 0.348989 359.7 0 352 0C344.319 0 342.615 0.352014 337.2 3.05801ZM17.177 19.71C13.274 30.045 7.81299 44.466 5.03999 51.757C2.26799 59.049 0 65.485 0 66.059C0 66.686 2.296 67.024 5.75 66.906C11.636 66.705 15 65.649 15 64.002C15 63.492 15.932 60.583 17.072 57.538L19.144 52H31.403H43.662L46 59C47.286 62.85 48.599 66.06 48.919 66.133C51.059 66.621 62.23 66.437 62.557 65.908C62.779 65.549 57.622 50.911 51.098 33.378L39.236 1.5L31.755 1.20999L24.274 0.92099L17.177 19.71ZM72 33.481V65.962L74.333 66.547C75.616 66.869 78.653 66.948 81.083 66.721L85.5 66.31L85.764 33.655L86.027 1H79.014H72V33.481ZM128.667 1.66699C128.3 2.03299 128 16.61 128 34.06C128 59.549 128.262 65.886 129.331 66.297C132.187 67.393 162.566 66.333 166.852 64.988C172.857 63.104 180.209 56.219 183.093 49.779C185.11 45.277 185.461 42.882 185.479 33.5C185.498 23.463 185.256 22.003 182.71 16.818C179.275 9.82299 174.877 5.846 167.544 3.103C162.678 1.282 159.741 1 145.629 1C136.666 1 129.033 1.29999 128.667 1.66699ZM198.454 2.259C198.188 2.952 198.09 17.689 198.235 35.009L198.5 66.5L220.662 66.628C232.851 66.699 243.989 66.534 245.412 66.262C247.847 65.796 248 65.418 248 59.883V54H230.5H213V46V38H228.5H244V32.5V27H228.5H213V20V13H230H247V7V1H222.969C204.572 1 198.824 1.295 198.454 2.259ZM260 33.383V65.767L262.25 66.37C265.175 67.154 271.402 67.167 273.418 66.393C274.731 65.889 275 63.869 275 54.498V43.211L286.914 42.855C298.265 42.517 299.033 42.357 303.164 39.487C314.203 31.815 315.128 13.403 304.859 5.772C299.257 1.609 295.744 1 277.351 1H260V33.383ZM275 21.974V32.199L283.921 31.849C291.765 31.542 293.158 31.202 295.466 29.034C297.719 26.915 298.048 25.871 297.795 21.635C297.372 14.559 294.686 12.782 283.523 12.197L275 11.749V21.974ZM342.898 14.289C341.029 15.547 338.379 18.585 337.009 21.039C333.575 27.19 333.45 40.355 336.766 46.666C341.296 55.288 351.383 58.381 359.957 53.778C372.247 47.178 372.973 22.117 361.102 14.251C356.333 11.091 347.618 11.109 342.898 14.289ZM143 33.5V54H151.852C161.954 54 165.762 52.268 169.446 45.997C172.078 41.516 172.28 27.224 169.779 22.5C166.031 15.423 160.924 13 149.757 13H143V33.5ZM27.485 28.209C25.414 33.869 23.509 39.063 23.252 39.75C22.902 40.689 24.904 41 31.287 41H39.787L35.832 29.772C33.657 23.597 31.737 18.403 31.565 18.231C31.393 18.059 29.557 22.549 27.485 28.209ZM100 58.883C100 66.46 100.469 66.955 107.668 66.986C113.548 67.012 114 66.433 114 58.893V52H107H100V58.883Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" aria-label="AIDEPO — наверх"><svg class="logo" viewBox="0 0 384 68" role="img" aria-label="AIDEPO"><use href="#logo"/></svg></a>
+    <nav class="navlinks" aria-label="Разделы">
+      <a href="#works">Работы</a>
+      <a href="#program">Программа</a>
+      <a href="#price">Стоимость</a>
+      <a href="#pay">Оплата</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn sm" href="https://t.me/rakova_daria" target="_blank" rel="noopener">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill"><span class="dot"></span>Новый поток · старт 10.10</span>
+        <h1>Обучение AI&#8209;генерациям <span>+ фотошоп</span> с нуля</h1>
+        <p class="lead">Встраиваем продукт в генерации и доводим картинку до коммерческого качества в фотошопе. 27 уроков уже записаны, к 10.10 добавляю 14+ новых.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#price">Хочу на обучение</a>
+          <a class="btn ghost" href="#works">Смотреть мои работы</a>
+        </div>
+      </div>
+      <div class="stats" aria-label="Обучение в цифрах">
+        <div class="stat hl"><b>40+</b><span>уроков в записи экрана</span></div>
+        <div class="stat"><b>20+</b><span>часов материала</span></div>
+        <div class="stat"><b>140+</b><span>учеников</span></div>
+        <div class="stat"><b>30+</b><span>статей в базе знаний Notion</span></div>
+        <div class="stat wide"><b>2000+</b><span>сообщений в чате комьюнити</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works">
+    <div class="wrap">
+      <div class="works-head">
+        <div class="sec-head" style="margin-bottom:0">
+          <h2>Мои работы</h2>
+          <p class="muted">Генерации с продуктом и ретушью в фотошопе. Все работы загружены в полном качестве.</p>
+        </div>
+        <span class="zoom-hint"><svg><use href="#zoom"/></svg>Увеличь, чтобы оценить детали</span>
+      </div>
+      <div class="carousel"><div class="gallery" id="gallery">
+        <button type="button" class="shot" id="w01" data-i="0" aria-label="Открыть в полном размере: Chanel"><img src="works/01-s.jpg" alt="Chanel — завтрак на подносе" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w02" data-i="1" aria-label="Открыть в полном размере: Medicube, La Mer"><img src="works/02-s.jpg" alt="Medicube, La Mer — Лас-Вегас в зип-пакете" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w03" data-i="2" aria-label="Открыть в полном размере: Swatch × AP"><img src="works/03-s.jpg" alt="Swatch × AP — Royal Pop, автомат с жвачкой" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w04" data-i="3" aria-label="Открыть в полном размере: Diptyque"><img src="works/04-s.jpg" alt="Diptyque — лимонный рынок" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w05" data-i="4" aria-label="Открыть в полном размере: Aromatica, Elemis"><img src="works/05-s.jpg" alt="Aromatica, Elemis — цитрусы в лотке" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w06" data-i="5" aria-label="Открыть в полном размере: Zielinski & Rozen"><img src="works/06-s.jpg" alt="Zielinski & Rozen — холодильник" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w07" data-i="6" aria-label="Открыть в полном размере: Kiehl's"><img src="works/07-s.jpg" alt="Kiehl's — ч/б, вода" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w08" data-i="7" aria-label="Открыть в полном размере: La Mer"><img src="works/08-s.jpg" alt="La Mer — устрицы и икра" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+        <button type="button" class="shot" id="w09" data-i="8" aria-label="Открыть в полном размере: Audemars Piguet"><img src="works/09-s.jpg" alt="Audemars Piguet — кожаный чемодан" width="1000" height="1333"><span class="zi"><svg><use href="#zoom"/></svg></span></button>
+      </div>
+      <div class="car-nav">
+        <button type="button" class="car-btn" id="car-prev" aria-label="Назад"><svg><use href="#left"/></svg></button>
+        <button type="button" class="car-btn" id="car-next" aria-label="Вперёд"><svg><use href="#right"/></svg></button>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section id="program">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Содержание</span>
+        <h2>Что внутри</h2>
+        <p class="muted">Часть уроков доступна сразу после покупки, новые выходят к старту потока 10.10.</p>
+      </div>
+
+      <div class="tabs" role="group" aria-label="Фильтр уроков" style="margin-bottom:20px">
+        <button type="button" id="f-all" aria-pressed="true" data-f="all">Все</button>
+        <button type="button" id="f-live" aria-pressed="false" data-f="live">Уже в доступе</button>
+        <button type="button" id="f-soon" aria-pressed="false" data-f="soon">Новые</button>
+      </div>
+
+      <!-- уже в доступе -->
+      <div data-kind="live" style="display:flex;flex-direction:column;gap:16px;margin-bottom:16px">
+        <div class="ready">
+          <div class="ready-card">
+            <span class="status live">● Уже в доступе</span>
+            <div class="ready-nums">
+              <div><b>27+</b><span>уроков</span></div>
+              <div><b>17 ч 47 мин</b><span>длительность</span></div>
+            </div>
+            <p class="muted">Доступ бессрочный. Все уроки в записи экрана: смотрите в своём темпе и возвращайтесь к ним когда нужно.</p>
+          </div>
+          <div class="group">
+            <div class="group-title"><h3>Также в доступе</h3></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#doc"/></svg></span><p>Полезные материалы</p></li>
+              <li><span class="ic"><svg><use href="#doc"/></svg></span><p>Гайды по обработке</p></li>
+              <li><span class="ic"><svg><use href="#spark"/></svg></span><p>7-дневный практикум<small>косметика, кафе, украшения</small></p></li>
+              <li><span class="ic"><svg><use href="#spark"/></svg></span><p>Чат комьюнити<small>2000+ сообщений, задания и разборы</small></p></li>
+            </ul>
+          </div>
+        </div>
+        <details class="group lessons-box" id="lessons-box">
+          <summary class="group-title"><h3>Содержание записанных уроков</h3><span class="sum-r"><span class="count">35 записей · 17:47:32</span><span class="chev"><svg><use href="#chev"/></svg></span></span></summary>
+          <ol class="lessons">
+            <li><span class="lk k-main">Урок 1</span><p>Промпт-инжиниринг</p><time>40:38</time></li>
+            <li><span class="lk k-main">Урок 2</span><p>Разбор 1</p><time>26:10</time></li>
+            <li><span class="lk k-main">Урок 3</span><p>Краткий обзор рабочих нейросетей. Создание UGC-контента для брендов и ИИ-инфлюенсеров + весь алгоритм работы с моим последним заказчиком. Краткий экскурс по внедрению товара</p><time>49:30</time></li>
+            <li><span class="lk k-main">Урок 3</span><p>Перенос товаров с помощью нейросетей</p><time>1:17:49</time></li>
+            <li><span class="lk k-mini">Мини-урок</span><p>Дополнительный поток клиентов из Pinterest</p><time>11:04</time></li>
+            <li><span class="lk k-mini">Мини-урок</span><p>Как я использую Perplexity + дублирование агентов из ChatGPT</p><time>8:52</time></li>
+            <li><span class="lk k-main">Урок 4</span><p>Гиперреализм</p><time>22:18</time></li>
+            <li><span class="lk k-mini">Мини-урок</span><p>Внешность модели</p><time>6:55</time></li>
+            <li><span class="lk k-main">Урок 5</span><p>Как я использую камеры в работе</p><time>13:02</time></li>
+            <li><span class="lk k-main">Урок 6</span><p>Доработка в фотошопе</p><time>19:10</time></li>
+            <li><span class="lk k-pod">Подкаст</span><p>Как получать от 30–40 $ за генерацию, из чего строится качественное обслуживание и про разницу в клиентах</p><time>10:25</time></li>
+            <li><span class="lk k-pod">Подкаст</span><p>Откуда я беру идеи для генераций и постов и как их реализую. Что делать, если нет вдохновения, как быть в курсе новостей в сфере и не получить передозировку контентом и выгорание</p><time>17:35</time></li>
+            <li><span class="lk k-main">Урок 7</span><p>Midjourney</p><time>49:19</time></li>
+            <li><span class="lk k-main">Урок 8</span><p>Сортировка работ и сборка постов</p><time>17:30</time></li>
+            <li><span class="lk k-mini">Мини-урок</span><p>Фотошоп в Figma</p><time>3:15</time></li>
+            <li><span class="lk k-main">Урок 9</span><p>Обзор апскейлеров</p><time>17:14</time></li>
+            <li><span class="lk k-main">Урок 10</span><p>Разбор задания 1 + доработки через фотошоп</p><time>1:13:00</time></li>
+            <li><span class="lk k-main">Урок 11</span><p>Обзор новых инструментов Higgsfield</p><time>34:11</time></li>
+            <li><span class="lk k-main">Урок 12</span><p>Практикум, день 1 из 7. Перенос товара, ретушь в фотошопе (+ цветокоррекция и наложение шума) и немного о колористике</p><time>51:13</time></li>
+            <li><span class="lk k-main">Урок 13</span><p>Практикум, день 2 из 7. Идеи для креативов, вносим разнообразие в услуги для брендов + практика</p><time>15:30</time></li>
+            <li><span class="lk k-main">Урок 14</span><p>Практикум, день 3 из 7. Снова переносим товары и ретушируем в фотошопе + дальние переносы: как максимально сохранить качество, когда объект далеко от камеры</p><time>38:24</time></li>
+            <li><span class="lk k-main">Урок 15</span><p>Практикум, день 4 из 7. Осваиваем новую нишу кафе и ресторанов и дорабатываем в фотошопе</p><time>20:45</time></li>
+            <li><span class="lk k-main">Урок 16</span><p>Практикум, день 5 из 7. Делаем креатив из генераций, тренируемся в фотошопе</p><time>57:47</time></li>
+            <li><span class="lk k-main">Урок 17</span><p>Практикум, день 6 из 7. Перенос украшений: в чём сложности, приёмы ретуши, работа над заказом с украшениями + несколько вариантов работы с ними и как выжать максимум из печальных исходников с заляпанным металлом</p><time>41:36</time></li>
+            <li><span class="lk k-main">Урок 18</span><p>Практикум, день 7. Разборы работ</p><time>1:04:56</time></li>
+            <li><span class="lk k-main">Урок 19</span><p>Разбор. Продвинутая доработка текста, говорим о контрасте в генерациях и пересвете</p><time>34:37</time></li>
+            <li><span class="lk k-mini">Мини-урок</span><p>Разбор работ</p><time>8:27</time></li>
+            <li><span class="lk k-main">Урок 20</span><p>Живой зум со мной с ответами на вопросы</p><time>1:39:00</time></li>
+            <li><span class="lk k-main">Урок 21</span><p>Разбираем объективные прорывы Nano Banana Pro</p><time>46:20</time></li>
+            <li><span class="lk k-main">Урок 22</span><p>Сравниваем все нейросети</p><time>44:37</time></li>
+            <li><span class="lk k-main">Урок 23</span><p>Разбор + фотошоп и цветокоррекция</p><time>41:21</time></li>
+            <li><span class="lk k-main">Урок 24</span><p>Видео ИИ. Теория создания ИИ-роликов: композиция, цвет, немного режиссуры. Чем я руководствуюсь при создании роликов</p><time>1:26:00</time></li>
+            <li><span class="lk k-main">Урок 25</span><p>Midjourney расширенный. Часть 1</p><time>59:24</time></li>
+            <li><span class="lk k-main">Урок 26</span><p>Midjourney расширенный. Часть 2</p><time>57:14</time></li>
+            <li><span class="lk k-main">Урок 27</span><p>Видео ИИ. Анимация и монтаж ИИ-ролика + цветокоррекция. Собираем ролик вместе</p><time>1:54:00</time></li>
+          </ol>
+        </details>
+      </div>
+
+      <!-- новые -->
+      <div class="program" data-kind="soon">
+        <div class="col">
+          <div class="group">
+            <div class="group-title"><h3>Нейросети</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Мой актуальный стек нейросетей</p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Как я использую Seedream и ChatGPT<small>и чем они отличаются от Nano Banana</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Как я работаю с Claude<small>развитие канала, стратегия, сборка кампейнов и промптинг</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Сравнение агрегаторов<small>почему Banana везде «разная», где работать, когда она падает, генерации через API-ключи</small></p></li>
+            </ul>
+          </div>
+          <div class="group">
+            <div class="group-title"><h3>Креатив</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Как придумывать кампейны, если ты не креативный человек<small>от цвета, композиции и смысла к тематике</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Как погрузиться в среду зарубежных креаторов и в любую тему</p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Корейская техника схематирования промптов<small>и выполнение без знаний 3D + бесплатные каналы, на которых я училась</small></p></li>
+            </ul>
+          </div>
+          <div class="group">
+            <div class="group-title"><h3>Фотошоп</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Дополнительный обзор интерфейса фотошопа<small>+ самый оптимальный способ изучения</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Инструменты, без которых я не представляю свою работу<small>+ лайфхаки</small></p></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="group">
+            <div class="group-title"><h3>Продвижение</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Самая оптимальная стратегия развития канала и поиска клиентов</p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Портфолио: быть или не быть<small>как выглядит идеальное, с примерами</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Ценообразование</p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>CPP OpenArt: как попасть</p></li>
+            </ul>
+          </div>
+          <div class="group">
+            <div class="group-title"><h3>Зарубежные клиенты и оплата сервисов</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Оплата нейросетевых сервисов: мой опыт<small>посредники, виртуальные карты (rusby), карты Беларуси и Армении (стоимость и сроки), аккаунты через Funpay / ggsell</small></p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Приём оплаты от иностранных клиентов: мой опыт</p></li>
+              <li><span class="ic"><svg><use href="#play"/></svg></span><p>Моя стратегия для зарубежного рынка</p></li>
+            </ul>
+          </div>
+          <div class="group">
+            <div class="group-title"><h3>Новые материалы</h3><span class="status soon">Новое</span></div>
+            <ul class="cells">
+              <li><span class="ic"><svg><use href="#spark"/></svg></span><p>Наборы обработок и пресеты<small>качественный шум, эффекты фотошопа, трендовые обработки</small></p></li>
+              <li><span class="ic"><svg><use href="#doc"/></svg></span><p>База знаний в Notion: 30+ статей<small>оплата сервисов, изучение нового, лайфхаки, мои мастхэвы, нюансы работы</small></p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOSHOP FEAR + FEEDBACK -->
+  <section>
+    <div class="wrap duo">
+      <div class="feature">
+        <span class="eyebrow">Страх фотошопа</span>
+        <p class="quote">«Я ни разу не открывал(а) фотошоп»</p>
+        <p class="big">Отлично, начнём с нуля.</p>
+        <p class="muted">Внутри моя пошаговая программа изучения:</p>
+        <div class="chips">
+          <span class="chip">Как начать в фотошопе</span>
+          <span class="chip">Программа изучения</span>
+          <span class="chip">Как я учусь бесплатно</span>
+          <span class="chip">Большой обзор интерфейса</span>
+          <span class="chip">Установка и выбор лицензии</span>
+          <span class="chip">Хоткеи</span>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="eyebrow">Поддержка</span>
+        <p class="big">Моя обратная связь с момента покупки и месяц после старта 10.10</p>
+        <p class="muted">Разбираю ваши работы и отвечаю на вопросы в чате. Рядом комьюнити учеников, где можно спросить совета и посмотреть чужие разборы.</p>
+        <div class="chips">
+          <span class="chip">Разборы работ</span>
+          <span class="chip">Задания</span>
+          <span class="chip">Чат 2000+ сообщений</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Стоимость</span>
+        <h2>Один тариф, всё включено</h2>
+      </div>
+      <div class="price-wrap">
+        <div class="price-card main">
+          <span class="badge">Ранняя цена до 01.10 включительно</span>
+          <div class="tabs" role="group" aria-label="Валюта">
+            <button type="button" id="c-rub" aria-pressed="true" data-c="rub">₽ Рубли</button>
+            <button type="button" id="c-eur" aria-pressed="false" data-c="eur">€ Евро</button>
+            <button type="button" id="c-usd" aria-pressed="false" data-c="usd">$ Доллары</button>
+          </div>
+          <div class="price" aria-live="polite">
+            <span class="now" id="p-now">15 000 ₽</span>
+            <span class="old" id="p-old">20 000 ₽</span>
+          </div>
+          <div class="timeline">
+            <div class="on"><span>до 01.10 включительно</span><span id="t-early">15 000 ₽</span></div>
+            <div><span>с 02.10</span><span id="t-full">20 000 ₽</span></div>
+          </div>
+          <a class="btn" href="https://t.me/rakova_daria" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#tg"/></svg>Записаться в Telegram</a>
+        </div>
+        <div class="price-card">
+          <h3>В стоимость входит</h3>
+          <ul class="checks">
+            <li><svg><use href="#check"/></svg>27+ записанных уроков (17 ч 47 мин) сразу после оплаты, доступ бессрочный</li>
+            <li><svg><use href="#check"/></svg>14+ новых уроков к 10.10</li>
+            <li><svg><use href="#check"/></svg>Подкасты, гайды по обработке и полезные материалы</li>
+            <li><svg><use href="#check"/></svg>7-дневный практикум: косметика, кафе, украшения</li>
+            <li><svg><use href="#check"/></svg>Пресеты и наборы обработок</li>
+            <li><svg><use href="#check"/></svg>База знаний Notion, 30+ статей</li>
+            <li><svg><use href="#check"/></svg>Пошаговая программа изучения фотошопа</li>
+            <li><svg><use href="#check"/></svg>Чат комьюнити</li>
+            <li><svg><use href="#check"/></svg>Моя обратная связь с момента покупки и месяц после старта</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENT -->
+  <section id="pay">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Варианты оплаты</span>
+        <h2>Как оплатить</h2>
+        <p class="muted">Для покупки напишите мне в Telegram, и я пришлю реквизиты под удобный способ.</p>
+        <div class="tg"><a class="btn" href="https://t.me/rakova_daria" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#tg"/></svg>Написать в Telegram</a><span class="tg-handle">@rakova_daria</span><button type="button" class="copy" id="copy1" data-copy="@rakova_daria">Скопировать</button></div>
+      </div>
+      <div class="pay" style="max-width:780px">
+        <div class="pay-row"><span class="pay-ic">₽</span><div><h3>В рублях</h3><p>Картой российского банка. Ранняя цена 15 000 ₽, с 02.10 — 20 000 ₽.</p></div></div>
+        <div class="pay-row"><span class="pay-ic">€</span><div><h3>В евро</h3><p>Для оплаты из-за рубежа. Ранняя цена 160 €, с 02.10 — 210 €.</p></div></div>
+        <div class="pay-row"><span class="pay-ic">$</span><div><h3>В долларах</h3><p>Для оплаты из-за рубежа. Ранняя цена 180 $, с 02.10 — 240 $.</p></div></div>
+        <div class="pay-row"><span class="pay-ic"><svg width="18" height="18"><use href="#doc"/></svg></span><div><h3>Чек для компании</h3><p>Если оплачиваете от компании, отправлю вам чек.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Частозадаваемые вопросы</h2>
+      </div>
+      <div class="faq">
+        <details id="q1" open>
+          <summary>Актуальность курса<span class="chev"><svg><use href="#chev"/></svg></span></summary>
+          <div class="ans">
+            <p>Помимо 27 уроков, которые уже записаны, к 10.10.2026 вы получаете абсолютно новые 14+ уроков, актуальность наисвежайшая :)</p>
+            <p>Не менее полезными остаются и предыдущие 27 уроков. Некоторые нейросети из первых уроков уже обновились, и мы обсуждаем это на протяжении всего курса. Но каждый урок закладывает базу и понимание того, как я работаю над генерациями и как советую работать ученикам.</p>
+            <p>Поэтому советую смотреть все уроки с самого начала: инструменты взаимозаменяемы, а логика единая. А в новых уроках только самые актуальные инструменты.</p>
+          </div>
+        </details>
+        <details id="q2">
+          <summary>Что требуется из техники, можно ли с телефона?<span class="chev"><svg><use href="#chev"/></svg></span></summary>
+          <div class="ans">
+            <p>К моему сожалению, с телефона нельзя. Как бы многие ни продавали эту профессию как «доход за 1 час в день с телефона», я сильный противник этого.</p>
+            <p>Я обучаю полному курсу обработки генераций, и самая главная его часть — ретушь, которую мы выполняем в фотошопе. Вам понадобится ноутбук или компьютер, даже совсем не мощный. Я начинала работать на 10-летнем стареньком ноутбуке, главное, чтобы он был :)</p>
+            <p>Разницы между MacBook и Windows для нашего обучения нет.</p>
+          </div>
+        </details>
+        <details id="q3">
+          <summary>Я хочу получить чек для своей компании<span class="chev"><svg><use href="#chev"/></svg></span></summary>
+          <div class="ans"><p>Да, конечно, я отправлю вам чек :)</p></div>
+        </details>
+        <details id="q4">
+          <summary>Какие программы требуются для прохождения курса?<span class="chev"><svg><use href="#chev"/></svg></span></summary>
+          <div class="ans"><p>Из программ понадобится фотошоп. В курсе есть рекомендации по установке и выбору лицензии. Другие программы для прохождения не требуются.</p></div>
+        </details>
+        <details id="q5">
+          <summary>Много ли нужно подписок для комфортного прохождения курса?<span class="chev"><svg><use href="#chev"/></svg></span></summary>
+          <div class="ans">
+            <p>Я совсем не сторонница покупки большого количества подписок, особенно на самом начальном этапе.</p>
+            <p>Благодаря большому опыту работы с разными агрегаторами я советую ученикам максимально комфортные сервисы. Я никогда не жертвую качеством ради стоимости, но слежу, чтобы решение было выгодным.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <span class="eyebrow" style="color:var(--accent)">New month · обучение 10.10</span>
+        <h2>Начнём с нуля вместе</h2>
+        <p>Ранняя цена 15 000 ₽ / 160 € / 180 $ действует до 01.10 включительно. Уроки в доступе сразу после оплаты.</p>
+        <p>Для приобретения напишите мне в Telegram:</p>
+        <div class="tg"><a class="btn" href="https://t.me/rakova_daria" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#tg"/></svg>Написать в Telegram</a><span class="tg-handle">@rakova_daria</span><button type="button" class="copy" id="copy2" data-copy="@rakova_daria">Скопировать</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр работы">
+  <div class="lb-top">
+    <span class="lb-count" id="lb-count">1 / 9</span>
+    <button type="button" class="lb-btn" id="lb-close" aria-label="Закрыть"><svg><use href="#x"/></svg></button>
+  </div>
+  <div class="lb-load" id="lb-load" hidden>Загружаю полное качество…</div>
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" alt="" draggable="false"></div>
+  <div class="lb-bot">
+    <button type="button" class="lb-btn" id="lb-prev" aria-label="Предыдущая"><svg><use href="#left"/></svg></button>
+    <button type="button" class="lb-btn" id="lb-out" aria-label="Уменьшить"><svg><use href="#minus"/></svg></button>
+    <span class="lb-tip" id="lb-tip">Увеличь, чтобы оценить детали</span>
+    <button type="button" class="lb-btn" id="lb-in" aria-label="Увеличить"><svg><use href="#plus"/></svg></button>
+    <button type="button" class="lb-btn" id="lb-next" aria-label="Следующая"><svg><use href="#right"/></svg></button>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 384 68" role="img" aria-label="AIDEPO" style="height:16px"><use href="#logo"/></svg>
+    <div class="legal">
+      <div>Поставщик услуг: <b>Митянина Дарья Михайловна</b></div>
+      <div>ИНН: <b>780537445702</b></div>
+      <div>Telegram: <b>@rakova_daria</b></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var prices={
+    rub:{now:"15 000 ₽",old:"20 000 ₽"},
+    eur:{now:"160 €",old:"210 €"},
+    usd:{now:"180 $",old:"240 $"}
+  };
+  var cBtns=document.querySelectorAll('[data-c]');
+  cBtns.forEach(function(b){b.addEventListener('click',function(){
+    cBtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var p=prices[b.dataset.c];
+    document.getElementById('p-now').textContent=p.now;
+    document.getElementById('p-old').textContent=p.old;
+    document.getElementById('t-early').textContent=p.now;
+    document.getElementById('t-full').textContent=p.old;
+  })});
+  var fBtns=document.querySelectorAll('[data-f]');
+  fBtns.forEach(function(b){b.addEventListener('click',function(){
+    fBtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var f=b.dataset.f;
+    document.querySelectorAll('[data-kind]').forEach(function(el){el.hidden=!(f==='all'||el.dataset.kind===f)});
+  })});
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+    var t=b.dataset.copy,done=function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Скопировать'},1600)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel(b)})}catch(e){sel(b)}
+  })});
+  function sel(b){var h=b.previousElementSibling;var r=document.createRange();r.selectNodeContents(h);var s=window.getSelection();s.removeAllRanges();s.addRange(r)}
+
+  var g=document.getElementById('gallery'),cp=document.getElementById('car-prev'),cn=document.getElementById('car-next');
+  function step(){var sh=g.querySelector('.shot');return sh?sh.getBoundingClientRect().width+parseFloat(getComputedStyle(g).columnGap||12):300}
+  function upd(){cp.disabled=g.scrollLeft<4;cn.disabled=g.scrollLeft+g.clientWidth>=g.scrollWidth-4}
+  cp.onclick=function(){g.scrollBy({left:-step(),behavior:'smooth'})};
+  cn.onclick=function(){g.scrollBy({left:step(),behavior:'smooth'})};
+  g.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  /* lightbox with zoom */
+  var N=9,lb=document.getElementById('lb'),stage=document.getElementById('lb-stage'),img=document.getElementById('lb-img'),
+      load=document.getElementById('lb-load'),tip=document.getElementById('lb-tip'),cnt=document.getElementById('lb-count');
+  var cur=0,s=1,fit=1,x=0,y=0,W=0,H=0,ptrs={},pinch=null,drag=null,lastTap=0,lastFocus=null;
+  function pad(i){return (i<9?'0':'')+(i+1)}
+  function apply(){img.style.transform='translate('+x+'px,'+y+'px) scale('+s+')';tip.textContent=s>fit*1.05?Math.round(s/fit*100)+'%':'Увеличь, чтобы оценить детали'}
+  function clamp(){var r=stage.getBoundingClientRect(),w=W*s,h=H*s;
+    x=w<=r.width?-w/2:Math.min(-r.width/2,Math.max(r.width/2-w,x));
+    y=h<=r.height?-h/2:Math.min(-r.height/2,Math.max(r.height/2-h,y))}
+  function reset(){var r=stage.getBoundingClientRect();fit=Math.min(r.width/W,r.height/H);s=fit;x=-W*s/2;y=-H*s/2;apply()}
+  function zoomAt(ns,cx,cy){var r=stage.getBoundingClientRect();ns=Math.max(fit,Math.min(fit*12,Math.max(ns,.02)));
+    var px=cx-r.left-r.width/2,py=cy-r.top-r.height/2;x=px-(px-x)*ns/s;y=py-(py-y)*ns/s;s=ns;clamp();apply()}
+  var token=0;
+  function show(i){cur=(i+N)%N;var t=++token;cnt.textContent=(cur+1)+' / '+N;
+    var small='works/'+pad(cur)+'-s.jpg',full='works/'+pad(cur)+'.jpg';
+    img.alt=document.querySelectorAll('.shot img')[cur].alt;load.hidden=false;
+    var smallDone=false,fullReady=null;
+    function swapFull(){if(t!==token)return;var ow=W;img.onload=function(){if(t!==token)return;W=img.naturalWidth;H=img.naturalHeight;
+      var r=stage.getBoundingClientRect();fit=Math.min(r.width/W,r.height/H);s=s*ow/W;apply();load.hidden=true};img.src=full}
+    img.onload=function(){if(t!==token)return;W=img.naturalWidth;H=img.naturalHeight;reset();smallDone=true;if(fullReady)swapFull()};
+    img.src=small;
+    var pre=new Image();pre.onload=function(){fullReady=true;if(smallDone)swapFull()};pre.onerror=function(){if(t===token)load.hidden=true};pre.src=full}
+  function open(i){lastFocus=document.activeElement;lb.hidden=false;document.body.style.overflow='hidden';show(i);document.getElementById('lb-close').focus()}
+  function close(){lb.hidden=true;document.body.style.overflow='';img.removeAttribute('src');if(lastFocus)lastFocus.focus()}
+  document.querySelectorAll('.shot').forEach(function(b){b.addEventListener('click',function(){open(+b.dataset.i)})});
+  document.getElementById('lb-close').onclick=close;
+  document.getElementById('lb-prev').onclick=function(){show(cur-1)};
+  document.getElementById('lb-next').onclick=function(){show(cur+1)};
+  function ctr(){var r=stage.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]}
+  document.getElementById('lb-in').onclick=function(){var c=ctr();zoomAt(s*1.8,c[0],c[1])};
+  document.getElementById('lb-out').onclick=function(){var c=ctr();zoomAt(s/1.8,c[0],c[1])};
+  lb.addEventListener('keydown',function(e){if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1)});
+  stage.addEventListener('wheel',function(e){e.preventDefault();zoomAt(s*Math.exp(-e.deltaY*0.0022),e.clientX,e.clientY)},{passive:false});
+  stage.addEventListener('pointerdown',function(e){stage.setPointerCapture(e.pointerId);ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
+    var ids=Object.keys(ptrs);
+    if(ids.length===2){var a=ptrs[ids[0]],b=ptrs[ids[1]];pinch={d:Math.hypot(a.x-b.x,a.y-b.y),s:s};drag=null}
+    else{drag={x:e.clientX,y:e.clientY,ox:x,oy:y,moved:false};stage.classList.add('drag')}});
+  stage.addEventListener('pointermove',function(e){if(!ptrs[e.pointerId])return;ptrs[e.pointerId]={x:e.clientX,y:e.clientY};var ids=Object.keys(ptrs);
+    if(pinch&&ids.length===2){var a=ptrs[ids[0]],b=ptrs[ids[1]];zoomAt(pinch.s*Math.hypot(a.x-b.x,a.y-b.y)/pinch.d,(a.x+b.x)/2,(a.y+b.y)/2)}
+    else if(drag){var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)drag.moved=true;
+      if(s<=fit*1.01){img.style.transform='translate('+(x+dx)+'px,'+y+'px) scale('+s+')'}else{x=drag.ox+dx;y=drag.oy+dy;clamp();apply()}}});
+  function up(e){if(!ptrs[e.pointerId])return;delete ptrs[e.pointerId];stage.classList.remove('drag');
+    if(Object.keys(ptrs).length<2)pinch=null;
+    if(drag){var dx=e.clientX-drag.x;
+      if(s<=fit*1.01&&drag.moved&&Math.abs(dx)>60){show(cur+(dx<0?1:-1))}
+      else if(!drag.moved){var now=Date.now();if(now-lastTap<300){zoomAt(s>fit*1.05?fit:fit*3,e.clientX,e.clientY);lastTap=0}else lastTap=now}
+      else if(s<=fit*1.01)apply();
+      drag=null}}
+  stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',up);
+  window.addEventListener('resize',function(){if(!lb.hidden&&W)reset()});
+})();
+</script>
+
+</body>
+</html>
